@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:password_saver_app/backup_screen.dart';
+import 'package:password_saver_app/password_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +32,7 @@ Widget _buildBanner() {
       children: [
         CircleAvatar(
           radius: 24,
-          backgroundColor: Colors.white.withOpacity(0.2),
+          backgroundColor: Colors.white.withValues(alpha: 0.2),
           child: const Icon(Icons.key, color: Colors.white),
         ),
         Column(
@@ -88,7 +90,7 @@ Widget _passwordCountCard() {
       borderRadius: BorderRadius.circular(20),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.05),
+          color: Colors.black.withValues(alpha: 0.05),
           blurRadius: 10,
           offset: const Offset(0, 5),
         ),
@@ -105,7 +107,7 @@ Widget _passwordCountCard() {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: primaryColor.withOpacity(0.1),
+                color: primaryColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(
@@ -150,7 +152,7 @@ Widget _recentlyAddedCard({
       borderRadius: BorderRadius.circular(20),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.05),
+          color: Colors.black.withValues(alpha: 0.05),
           blurRadius: 10,
           offset: const Offset(0, 5),
         ),
@@ -180,7 +182,7 @@ Widget _recentlyAddedCard({
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: primaryColor.withOpacity(0.1),
+                color: primaryColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(Icons.lock_outline, color: primaryColor),
@@ -270,7 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(right: 12),
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Color(0xFF4A6CF7).withOpacity(0.1),
+                    color: Color(0xFF4A6CF7).withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -306,53 +308,6 @@ class _HomeScreenState extends State<HomeScreen> {
             timeAgo: "2h ago",
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.08),
-              blurRadius: 20,
-              offset: const Offset(0, 10),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: BottomNavigationBar(
-            currentIndex: 0,
-            onTap: (value) {},
-            backgroundColor: Colors.white,
-            elevation: 0,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: const Color(0xFF4A6CF7),
-            unselectedItemColor: Colors.grey,
-            showUnselectedLabels: true,
-            selectedLabelStyle: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-            ),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                activeIcon: Icon(Icons.home),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.lock_outline),
-                activeIcon: Icon(Icons.lock),
-                label: "Passwords",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.backup_outlined),
-                activeIcon: Icon(Icons.backup),
-                label: "Backup",
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
